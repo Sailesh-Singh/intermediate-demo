@@ -1,0 +1,1 @@
+console.log('Simple DevOps Static Site loaded!'); 
