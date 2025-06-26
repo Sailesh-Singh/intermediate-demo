@@ -30,7 +30,8 @@ app.get('/api/status', (req, res) => {
 });
 
 // Error handling middleware
-app.use((err, req, res, next) => {
+app.use((err, req, res, _next) => {
+  // eslint-disable-next-line no-console
   console.error(err.stack);
   res.status(500).json({ error: 'Something went wrong!' });
 });
@@ -43,8 +44,11 @@ app.use((req, res) => {
 // Only start the server if this file is run directly (not when imported for testing)
 if (require.main === module) {
   app.listen(PORT, () => {
+    // eslint-disable-next-line no-console
     console.log(`🚀 Intermediate DevOps Demo server running on port ${PORT}`);
+    // eslint-disable-next-line no-console
     console.log(`📊 Health check: http://localhost:${PORT}/api/health`);
+    // eslint-disable-next-line no-console
     console.log(`📈 Status: http://localhost:${PORT}/api/status`);
   });
 }
